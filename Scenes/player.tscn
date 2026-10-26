@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cap0r6o8i503w"]
+
+[ext_resource type="Script" uid="uid://ufhai3jeg6w4" path="res://Scripts/input_manager.gd" id="2_gymyn"]
+[ext_resource type="Script" uid="uid://oqhop3eqxwy4" path="res://Scripts/endturn.gd" id="3_gymyn"]
+[ext_resource type="Script" uid="uid://cbi3mbsusubgv" path="res://Scripts/card_manager.gd" id="3_pu2lt"]
+[ext_resource type="PackedScene" uid="uid://c6tfx13avnp5v" path="res://Scenes/card.tscn" id="4_ukyrk"]
+[ext_resource type="FontFile" uid="uid://stcnxby55bvn" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-DemiBold.otf" id="5_7dp3o"]
+[ext_resource type="PackedScene" uid="uid://d18o8od67m2s8" path="res://Scenes/deck.tscn" id="6_h4iuc"]
+[ext_resource type="PackedScene" uid="uid://dw2dayuod8dwk" path="res://Scenes/hand.tscn" id="8_qqcod"]
+[ext_resource type="Script" uid="uid://bjv8a6phtj5v7" path="res://Scripts/card_zone.gd" id="9_igrcy"]
+[ext_resource type="PackedScene" uid="uid://b8vus1emcmupr" path="res://Scenes/card_zone.tscn" id="10_fs7ks"]
+[ext_resource type="PackedScene" uid="uid://cv53fsrdgm00q" path="res://Scenes/resource_bar.tscn" id="10_tx1dd"]
+
+[node name="Player" type="Node2D" unique_id=1982797667]
+texture_filter = 4
+
+[node name="InputManager" type="Node2D" parent="." unique_id=371966683]
+script = ExtResource("2_gymyn")
+
+[node name="CardManager" type="Node2D" parent="." unique_id=540846897]
+script = ExtResource("3_pu2lt")
+
+[node name="CardPreview" parent="CardManager" unique_id=348966102 instance=ExtResource("4_ukyrk")]
+position = Vector2(281, 540)
+scale = Vector2(0.35, 0.35)
+
+[node name="SkillStack" parent="CardManager" unique_id=981357137 instance=ExtResource("4_ukyrk")]
+position = Vector2(1639, 540)
+scale = Vector2(0.35, 0.35)
+
+[node name="Deck" parent="." unique_id=249630056 instance=ExtResource("6_h4iuc")]
+position = Vector2(1723, 1000)
+
+[node name="Hand" parent="." unique_id=916497237 instance=ExtResource("8_qqcod")]
+position = Vector2(960, 1000)
+script = ExtResource("9_igrcy")
+
+[node name="Reveal" parent="." unique_id=1466998308 instance=ExtResource("8_qqcod")]
+position = Vector2(1470, 1000)
+scale = Vector2(0.8, 1)
+script = ExtResource("9_igrcy")
+
+[node name="Base" parent="." unique_id=1333431316 instance=ExtResource("10_fs7ks")]
+position = Vector2(1520, 840)
+
+[node name="Stage1" parent="." unique_id=1474507446 instance=ExtResource("10_fs7ks")]
+position = Vector2(960, 840)
+
+[node name="Stage2" parent="." unique_id=877505659 instance=ExtResource("10_fs7ks")]
+position = Vector2(400, 840)
+
+[node name="Stage3" parent="." unique_id=1205492429 instance=ExtResource("10_fs7ks")]
+position = Vector2(1240, 640)
+
+[node name="Stage4" parent="." unique_id=329560043 instance=ExtResource("10_fs7ks")]
+position = Vector2(680, 640)
+
+[node name="OppBase" parent="." unique_id=1543381149 instance=ExtResource("10_fs7ks")]
+position = Vector2(400, 240)
+
+[node name="OppStage1" parent="." unique_id=258098973 instance=ExtResource("10_fs7ks")]
+position = Vector2(960, 240)
+
+[node name="OppStage2" parent="." unique_id=718242537 instance=ExtResource("10_fs7ks")]
+position = Vector2(1520, 240)
+
+[node name="OppStage3" parent="." unique_id=1700710616 instance=ExtResource("10_fs7ks")]
+position = Vector2(680, 440)
+
+[node name="OppStage4" parent="." unique_id=77376209 instance=ExtResource("10_fs7ks")]
+position = Vector2(1240, 440)
+
+[node name="DP" parent="." unique_id=933230136 instance=ExtResource("10_tx1dd")]
+position = Vector2(448, 975)
+scale = Vector2(1, 0.99999994)
+skew = -0.17453301
+
+[node name="SP" parent="." unique_id=774490051 instance=ExtResource("10_tx1dd")]
+modulate = Color(0.20392157, 0.8, 0, 1)
+position = Vector2(448, 1025)
+scale = Vector2(1, 0.9999999)
+
+[node name="EoT" type="Button" parent="." unique_id=571802127]
+offset_left = 156.0
+offset_top = 961.0
+offset_right = 247.0
+offset_bottom = 989.0
+theme_override_fonts/font = ExtResource("5_7dp3o")
+text = "END TURN"
+flat = true
+script = ExtResource("3_gymyn")
+
+[node name="Score" type="Button" parent="." unique_id=599604985]
+offset_left = 156.0
+offset_top = 1011.0
+offset_right = 247.0
+offset_bottom = 1039.0
+theme_override_fonts/font = ExtResource("5_7dp3o")
+text = "SCORE: x"
+flat = true
+script = ExtResource("3_gymyn")
+
+[connection signal="pressed" from="EoT" to="EoT" method="_on_pressed"]
+[connection signal="pressed" from="Score" to="Score" method="_on_pressed"]

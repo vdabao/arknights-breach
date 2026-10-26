@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://kqysyqo5tndw"]
+
+[ext_resource type="Theme" uid="uid://bs71c2vf6yfee" path="res://Themes/Base.tres" id="1_5wupd"]
+[ext_resource type="Script" uid="uid://l7x14kydeat" path="res://Scenes/counter.gd" id="2_dfxaj"]
+
+[node name="Control" type="Control" unique_id=1645853510]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="." unique_id=963226004]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+pivot_offset = Vector2(150, 150)
+theme = ExtResource("1_5wupd")
+script = ExtResource("2_dfxaj")
+
+[node name="Counter" type="RichTextLabel" parent="Button" unique_id=880265267]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 600.0
+offset_bottom = 268.0
+pivot_offset = Vector2(150, 150)
+mouse_filter = 2
+theme = ExtResource("1_5wupd")
+text = "x"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Button" to="Button" method="_on_gui_input"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

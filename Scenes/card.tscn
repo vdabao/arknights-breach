@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://c6tfx13avnp5v"]
+
+[ext_resource type="Script" uid="uid://ccvtv8uf8ptyc" path="res://Scripts/card.gd" id="1_kikvd"]
+[ext_resource type="Texture2D" uid="uid://cqqfwhqsgl86g" path="res://Assets/Images/CardBackground.png" id="2_e6po8"]
+[ext_resource type="Texture2D" uid="uid://c8h0sa15161og" path="res://Assets/Images/Card Border.png" id="3_eumee"]
+[ext_resource type="Texture2D" uid="uid://dce0cgmvycta2" path="res://Assets/Images/cardback.png" id="4_e6po8"]
+[ext_resource type="FontFile" uid="uid://stcnxby55bvn" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-DemiBold.otf" id="4_eumee"]
+[ext_resource type="Script" uid="uid://di0rnp4sl3bom" path="res://Scripts/counter.gd" id="6_u5wvb"]
+[ext_resource type="Theme" uid="uid://bs71c2vf6yfee" path="res://Themes/Base.tres" id="6_xnv4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojhn7"]
+size = Vector2(750, 1050)
+
+[node name="Card" type="Node2D" unique_id=348966102]
+texture_filter = 4
+script = ExtResource("1_kikvd")
+
+[node name="CardBG" type="Sprite2D" parent="." unique_id=646954391]
+texture = ExtResource("2_e6po8")
+
+[node name="CardArt" type="Sprite2D" parent="." unique_id=2044771670]
+
+[node name="CardBorder" type="Sprite2D" parent="." unique_id=604010646]
+texture = ExtResource("3_eumee")
+
+[node name="CardBack" type="Sprite2D" parent="." unique_id=1131042679]
+visible = false
+scale = Vector2(0.7936508, 0.7936508)
+texture = ExtResource("4_e6po8")
+
+[node name="DP" type="RichTextLabel" parent="." unique_id=498171882]
+offset_left = -330.0
+offset_top = -490.0
+offset_right = -218.0
+offset_bottom = -357.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_eumee")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Force" type="RichTextLabel" parent="." unique_id=395760510]
+offset_left = -177.0
+offset_top = -490.0
+offset_right = -64.0
+offset_bottom = -357.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_eumee")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardName" type="RichTextLabel" parent="." unique_id=1461234562]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_top = 55.0
+offset_right = 330.0
+offset_bottom = 155.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_eumee")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+scroll_active = false
+vertical_alignment = 2
+
+[node name="CardAlias" type="RichTextLabel" parent="." unique_id=1567686339]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_top = 55.0
+offset_right = 330.0
+offset_bottom = 155.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_eumee")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Counter" type="RichTextLabel" parent="." unique_id=1105633825]
+visible = false
+offset_left = -350.0
+offset_top = 120.0
+offset_right = 350.0
+offset_bottom = 450.0
+pivot_offset = Vector2(350, 165)
+mouse_filter = 1
+theme = ExtResource("6_xnv4g")
+text = "x"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_u5wvb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1178012577]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=854272261]
+position = Vector2(1.5234184e-05, -4.860005e-06)
+shape = SubResource("RectangleShape2D_ojhn7")
+
+[connection signal="gui_input" from="Counter" to="Counter" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

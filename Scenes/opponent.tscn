@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://db2fojeikol5b"]
+
+[ext_resource type="PackedScene" uid="uid://d18o8od67m2s8" path="res://Scenes/deck.tscn" id="2_wu1cu"]
+[ext_resource type="PackedScene" uid="uid://dw2dayuod8dwk" path="res://Scenes/hand.tscn" id="4_3halo"]
+[ext_resource type="Script" uid="uid://bjv8a6phtj5v7" path="res://Scripts/card_zone.gd" id="5_0ness"]
+[ext_resource type="PackedScene" uid="uid://cv53fsrdgm00q" path="res://Scenes/resource_bar.tscn" id="5_y3qc2"]
+
+[node name="Opponent" type="Node2D" unique_id=1465117151]
+texture_filter = 4
+
+[node name="OppCardManager" type="Node2D" parent="." unique_id=1250153885]
+
+[node name="OppDeck" parent="." unique_id=249630056 instance=ExtResource("2_wu1cu")]
+position = Vector2(197, 80)
+rotation = -3.1415925
+
+[node name="OppHand" parent="." unique_id=916497237 instance=ExtResource("4_3halo")]
+position = Vector2(960, 80)
+rotation = -3.1415925
+script = ExtResource("5_0ness")
+
+[node name="OppReveal" parent="." unique_id=811613552 instance=ExtResource("4_3halo")]
+position = Vector2(450, 80)
+scale = Vector2(0.8, 1)
+script = ExtResource("5_0ness")
+
+[node name="OppDP" parent="." unique_id=1576063615 instance=ExtResource("5_y3qc2")]
+position = Vector2(1568, 55)
+scale = Vector2(1, 0.99999994)
+
+[node name="OppSP" parent="." unique_id=774490051 instance=ExtResource("5_y3qc2")]
+modulate = Color(0.20392157, 0.8, 0, 1)
+position = Vector2(1568, 105)

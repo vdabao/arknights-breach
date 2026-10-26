@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b8vus1emcmupr"]
+
+[ext_resource type="Texture2D" uid="uid://wf5p2svr3qyb" path="res://Assets/Images/cardzone.png" id="1_gmooh"]
+[ext_resource type="Script" uid="uid://bjv8a6phtj5v7" path="res://Scripts/card_zone.gd" id="1_psmys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(500, 140)
+
+[node name="CardZone" type="Node2D" unique_id=877505659]
+texture_filter = 4
+script = ExtResource("1_psmys")
+
+[node name="ZoneImage" type="Sprite2D" parent="." unique_id=1186132352]
+scale = Vector2(0.10614102, 0.10614102)
+texture = ExtResource("1_gmooh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1710696602]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1340318048]
+shape = SubResource("RectangleShape2D_lquwl")

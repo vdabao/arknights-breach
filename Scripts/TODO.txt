@@ -1,0 +1,10 @@
+Review: Arrow Script
+Review: Encode/Decode Address Script
+
+Implement: Effect Text!
+Implement: Create Deck
+Implement: Scoring Button
+Implement: Clear arrows through Net
+
+Revise: Functions for Readability
+Revise: Card Manager Input

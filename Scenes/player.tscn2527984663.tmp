@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cap0r6o8i503w"]
+
+[ext_resource type="Script" uid="uid://dpf051e2n51sf" path="res://Scripts/field_setup.gd" id="1_gymyn"]
+[ext_resource type="Script" uid="uid://ufhai3jeg6w4" path="res://Scripts/input_manager.gd" id="2_gymyn"]
+[ext_resource type="Script" uid="uid://cbi3mbsusubgv" path="res://Scripts/card_manager.gd" id="3_pu2lt"]
+[ext_resource type="PackedScene" uid="uid://c6tfx13avnp5v" path="res://Scenes/card.tscn" id="4_ukyrk"]
+[ext_resource type="FontFile" uid="uid://stcnxby55bvn" path="res://Assets/Font/novecento_sans/Novecentosanswide-DemiBold.otf" id="5_7dp3o"]
+[ext_resource type="PackedScene" uid="uid://d18o8od67m2s8" path="res://Scenes/deck.tscn" id="6_h4iuc"]
+[ext_resource type="PackedScene" uid="uid://bb55sqvlrjd7s" path="res://Scenes/dp_deck.tscn" id="7_fd4e3"]
+[ext_resource type="PackedScene" uid="uid://dw2dayuod8dwk" path="res://Scenes/hand.tscn" id="8_qqcod"]
+[ext_resource type="Script" uid="uid://bjv8a6phtj5v7" path="res://Scripts/card_zone.gd" id="9_igrcy"]
+[ext_resource type="PackedScene" uid="uid://b8vus1emcmupr" path="res://Scenes/card_zone.tscn" id="10_fs7ks"]
+
+[node name="Player" type="Node2D" unique_id=1982797667]
+script = ExtResource("1_gymyn")
+
+[node name="EoT" type="Button" parent="." unique_id=571802127]
+visible = false
+offset_left = 1800.0
+offset_top = 1021.0
+offset_right = 1900.0
+offset_bottom = 1066.0
+theme_override_fonts/font = ExtResource("5_7dp3o")
+disabled = true
+text = "END TURN"
+
+[node name="OBJ" type="RichTextLabel" parent="." unique_id=1402700902]
+offset_left = 1800.0
+offset_top = 934.0
+offset_right = 1900.0
+offset_bottom = 979.0
+theme_override_fonts/normal_font = ExtResource("5_7dp3o")
+theme_override_font_sizes/normal_font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputManager" type="Node2D" parent="." unique_id=371966683]
+script = ExtResource("2_gymyn")
+
+[node name="CardManager" type="Node2D" parent="." unique_id=540846897]
+script = ExtResource("3_pu2lt")
+
+[node name="CardPreview" parent="CardManager" unique_id=348966102 instance=ExtResource("4_ukyrk")]
+position = Vector2(281, 540)
+scale = Vector2(0.35, 0.35)
+
+[node name="SkillStack" parent="CardManager" unique_id=981357137 instance=ExtResource("4_ukyrk")]
+position = Vector2(1639, 540)
+scale = Vector2(0.35, 0.35)
+
+[node name="Deck" parent="." unique_id=249630056 instance=ExtResource("6_h4iuc")]
+position = Vector2(1723, 1000)
+
+[node name="DPDeck" parent="." unique_id=524226795 instance=ExtResource("7_fd4e3")]
+position = Vector2(197, 1000)
+
+[node name="AllyZones" type="Node2D" parent="." unique_id=347905193]
+
+[node name="Hand" parent="AllyZones" unique_id=916497237 instance=ExtResource("8_qqcod")]
+position = Vector2(960, 1000)
+script = ExtResource("9_igrcy")
+
+[node name="DP" parent="AllyZones" unique_id=877505659 instance=ExtResource("10_fs7ks")]
+position = Vector2(400, 840)
+
+[node name="Outpost" parent="AllyZones" unique_id=1333431316 instance=ExtResource("10_fs7ks")]
+position = Vector2(1520, 840)
+
+[node name="Base" parent="AllyZones" unique_id=1474507446 instance=ExtResource("10_fs7ks")]
+position = Vector2(960, 840)
+
+[node name="Stage" parent="AllyZones" unique_id=329560043 instance=ExtResource("10_fs7ks")]
+position = Vector2(680, 640)
+
+[node name="Stage2" parent="AllyZones" unique_id=1205492429 instance=ExtResource("10_fs7ks")]
+position = Vector2(1240, 640)
+
+[node name="OppZones" type="Node2D" parent="." unique_id=256829001]
+
+[node name="OppDP" parent="OppZones" unique_id=718242537 instance=ExtResource("10_fs7ks")]
+position = Vector2(1520, 240)
+
+[node name="OppOutpost" parent="OppZones" unique_id=1543381149 instance=ExtResource("10_fs7ks")]
+position = Vector2(400, 240)
+
+[node name="OppBase" parent="OppZones" unique_id=258098973 instance=ExtResource("10_fs7ks")]
+position = Vector2(960, 240)
+
+[node name="OppStage" parent="OppZones" unique_id=77376209 instance=ExtResource("10_fs7ks")]
+position = Vector2(1240, 440)
+
+[node name="OppStage2" parent="OppZones" unique_id=1700710616 instance=ExtResource("10_fs7ks")]
+position = Vector2(680, 440)

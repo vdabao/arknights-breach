@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ypqhasnpa7a1"]
+
+[ext_resource type="Script" uid="uid://bjrh0y3j0dt4r" path="res://Scripts/menu.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cap0r6o8i503w" path="res://Scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://db2fojeikol5b" path="res://Scenes/opponent.tscn" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ciq0d7ho2oqpi" path="res://Assets/Images/MenuBG.png" id="4_6bp64"]
+[ext_resource type="FontFile" uid="uid://tcrdbmhn2g58" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-Normal.otf" id="5_21xkr"]
+[ext_resource type="FontFile" uid="uid://btfynmp31ijtm" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-Light.otf" id="7_6bp64"]
+[ext_resource type="FontFile" uid="uid://stcnxby55bvn" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-DemiBold.otf" id="10_4c57u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
+bg_color = Color(0, 0.5647059, 0.6666667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1ilt"]
+bg_color = Color(0, 0.46666667, 0.5529412, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsu2k"]
+bg_color = Color(0, 0.5647059, 0.6666667, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
+bg_color = Color(2.887845e-06, 0.4665246, 0.55233157, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Main" type="Node2D" unique_id=1328995429]
+texture_filter = 4
+script = ExtResource("1_0xm2m")
+player_field_scene = ExtResource("2_h2yge")
+opp_field_scene = ExtResource("3_1bvp3")
+
+[node name="MenuBG" type="Sprite2D" parent="." unique_id=1822448478]
+position = Vector2(960, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("4_6bp64")
+
+[node name="Host" type="Button" parent="." unique_id=1328840652]
+offset_left = 50.0
+offset_top = 505.0
+offset_right = 200.0
+offset_bottom = 535.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d1ilt")
+text = "HOST"
+
+[node name="Join" type="Button" parent="." unique_id=1676630757]
+offset_left = 50.0
+offset_top = 545.0
+offset_right = 200.0
+offset_bottom = 575.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_4c57u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wsu2k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_344ge")
+text = "JOIN"
+
+[node name="RoomCode" type="RichTextLabel" parent="." unique_id=1192472774]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = 505.0
+offset_right = 460.0
+offset_bottom = 535.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_21xkr")
+theme_override_font_sizes/normal_font_size = 24
+text = "Room Code: "
+
+[node name="ServerAddress" type="LineEdit" parent="." unique_id=1714730730]
+visible = false
+offset_left = 210.0
+offset_top = 545.0
+offset_right = 460.0
+offset_bottom = 577.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_6bp64")
+placeholder_text = "enter room code..."
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

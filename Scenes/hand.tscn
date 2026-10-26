@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dw2dayuod8dwk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cevm"]
+size = Vector2(500, 140)
+
+[node name="Hand" type="Node2D" unique_id=916497237]
+texture_filter = 4
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1027109722]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=944863538]
+position = Vector2(6.4143933e-06, 0)
+shape = SubResource("RectangleShape2D_7cevm")

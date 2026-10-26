@@ -1,0 +1,33 @@
+[gd_resource type="Theme" format=3 uid="uid://bs71c2vf6yfee"]
+
+[ext_resource type="Texture2D" uid="uid://smrmddgo8tly" path="res://Assets/Images/DPBar.png" id="1_0fmse"]
+[ext_resource type="FontFile" uid="uid://stcnxby55bvn" path="res://Assets/Fonts/novecento_sans/Novecentosanswide-DemiBold.otf" id="1_707nd"]
+[ext_resource type="Texture2D" uid="uid://gmg1j1ar7s4a" path="res://Assets/Images/DPFill.png" id="2_emh1x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu2lt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fmse"]
+texture = ExtResource("1_0fmse")
+texture_margin_left = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emh1x"]
+texture = ExtResource("2_emh1x")
+texture_margin_left = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[resource]
+default_font = ExtResource("1_707nd")
+default_font_size = 16
+Button/styles/normal = SubResource("StyleBoxFlat_pu2lt")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 0
+ProgressBar/styles/background = SubResource("StyleBoxTexture_0fmse")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_emh1x")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/font_sizes/normal_font_size = 256
+RichTextLabel/fonts/normal_font = ExtResource("1_707nd")

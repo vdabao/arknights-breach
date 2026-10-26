@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d18o8od67m2s8"]
+
+[ext_resource type="Script" uid="uid://blcpdx1x3rj7i" path="res://Scripts/deck.gd" id="1_io7pv"]
+[ext_resource type="Texture2D" uid="uid://dce0cgmvycta2" path="res://Assets/cardback.png" id="1_ukesx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqgur"]
+size = Vector2(94, 132)
+
+[node name="Deck" type="Node2D" unique_id=249630056]
+script = ExtResource("1_io7pv")
+
+[node name="DeckImage" type="Sprite2D" parent="." unique_id=113642353]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ukesx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2077197393]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1080427128]
+shape = SubResource("RectangleShape2D_hqgur")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
